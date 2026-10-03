@@ -1,10 +1,10 @@
-$letters = ['a', 'b' , 'c' , 'd' , 'e', 'f','g', 'h' , 'i', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x','y', 'z']
+$letters = ['a', 'b' , 'c' , 'd' , 'e', 'f','g', 'h' , 'i', 'j','k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x','y', 'z']
 
 
 puts "Message to encrypt: "
 message = gets.chomp
 puts "Encryption jump: "
-jumpEncryption = gets.chomp.to_i
+jump_encryption = gets.chomp.to_i
 
 
 def convert_string_to_array(string)
@@ -27,7 +27,22 @@ def make_change_the_font (char_change, number_jump=0)
   char_change
 end
 
+def apply_caesar_cipher (array, number_jump=0)
+  for i in 0..array.length-1
+    array[i] = make_change_the_font(array[i], number_jump)
+  end
+  array
+end
 
-puts "#{make_change_the_font('x', 3)}"
+def convert_string_to_array (array)
+  newString = array.join('')
+  newString
+end
+
+
+array_cipher = apply_caesar_cipher(message_array, jump_encryption)
+message_cipher = convert_string_to_array(array_cipher)
+puts "Message cipher: "
+puts "#{message_cipher}"
 
 
