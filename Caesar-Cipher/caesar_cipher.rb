@@ -16,6 +16,11 @@ end
 message_array = convert_string_to_array(message)
 
 def make_change_the_font (char_change, number_jump=0)
+  is_uppercase = false
+  if char_change.match?(/[A-Z]/)
+    char_change = char_change.downcase
+    is_uppercase = true
+  end
   if $letters.include?(char_change)
     index = $letters.index(char_change)
     new_index = index + number_jump
@@ -23,6 +28,9 @@ def make_change_the_font (char_change, number_jump=0)
       new_index -= $letters.length 
     end
     new_char = $letters[new_index]
+      if is_uppercase == true 
+    new_char = new_char.upcase
+  end
     return new_char
   end
   char_change
