@@ -12,17 +12,17 @@ end
 def search_word (dictionary, arr_words)
     words_find = {}
    until  arr_words.length == 0 do
-    if dictionary.include?(arr_words[0])
-      words_find[arr_words[0]] ||=  0
-      words_find[arr_words[0]] += 1
+    for i in 0..dictionary.length - 1 do
+        if arr_words[0].include?(dictionary[i])
+           words_find[dictionary[i]] ||= 0
+           words_find[dictionary[i]] += 1
+        end
     end
-    arr_words[0] = arr_words[0][1..-1]
-    if arr_words[0] == ''
-        arr_words.shift
-    end
+    arr_words.shift
    end
    words_find 
 end
 
 message_array = convert_string_to_array(message_user)
+puts "#{message_array}"
 puts "#{search_word(dictionary, message_array)}"
