@@ -20,3 +20,9 @@ def find_index_max_number (arr, index_start=0)
     end
     index_max_number
 end
+
+
+def calculate_profit (purchase_value, sale_value)
+    profit = sale_value - purchase_value
+    profit
+end
