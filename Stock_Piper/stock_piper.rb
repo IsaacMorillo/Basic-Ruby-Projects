@@ -49,3 +49,9 @@ def stock_piper (arr_numbers)
     result = [purchase_day, sales_day]
     result
 end
+
+best_combination_days = stock_piper(arr_test)
+puts "Best day to buy: #{best_combination_days[0]}"
+puts "Best day to sell: #{best_combination_days[1]}"
+puts "Benefit of: #{calculate_profit(arr_test[best_combination_days[0]],arr_test[best_combination_days[1]])}"
+
